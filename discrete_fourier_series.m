@@ -1,9 +1,9 @@
 close all; clc; clear;
 
 % Discrete Fourier Series
-n = 0:3; % time index
-x = 1-sin(pi/4*n); % input signal in one period
-N = 4; % period of the signal
+N = 6; % period of the signal
+n = 0:N-1; % time index
+x = (1+cos(2*pi/6*n)).*sin(2*pi/6*n+pi/4); % input signal in one period
 wo = 2*pi/N; % fundamental frequency
 [a_k, a_k2] = discrete_fourier_series_coefficients(x, N); % compute the coefficients
 disp(a_k); % display the coefficients

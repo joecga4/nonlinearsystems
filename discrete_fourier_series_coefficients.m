@@ -22,6 +22,7 @@ function [a_k, a_k2] = discrete_fourier_series_coefficients(x, N)
         a_k(k) = (1/N) * sum(x .* exp(-1j*(k-1)*wo*(0:(N-1)))); % DFS coefficients
     end
 
-    %a_k2(1) = (1/N) * sum(x); % DC component
-    %a_k2(2:N) = (1/N) * (1-exp(-1j*(1:(N-1))*wo*4))./(1-exp(-1j*(1:(N-1))*wo)); % alternative formula for coefficients
+    a_k2(1) = (1/N) * sum(x); % DC component
+    a_k2(2:N) = (1/N) * (1/1j) * (exp(1j*(-pi/4-(1:(N-1))*pi/6))-exp(1j*(pi/4-(1:(N-1))*pi/6)))./(exp(1j*(-(1:(N-1))*pi/3))-exp(1j*(-pi/4-(1:(N-1))*pi/6))-exp(1j*(pi/4-(1:(N-1))*pi/6))+1); % alternative formula for coefficients
+
 end
